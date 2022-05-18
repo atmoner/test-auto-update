@@ -12,10 +12,10 @@ const config = {
 }
 const updater = new AutoGitUpdate(config);
 
-app.get('/', (req, res) => {
-  var returnData = updater.compareVersions()
-  res.send('Hello atmon3r updated-4! <a href="./update">update</a><br />'+returnData)
-
+app.get('/', async (req, res) => {
+  var returnData = await updater.compareVersions()
+  console.log(returnData)
+  res.send('Hello atmon3r updated-4! <a href="./update">update</a><br />Curent version: '+returnData.currentVersion+'<br />Remote version'+returnData.remoteVersion)
 })
 
 app.get('/update', (req, res) => {  
@@ -23,13 +23,6 @@ app.get('/update', (req, res) => {
   res.send('update')
 })
 
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 }) 
-
-
-
-
-
-
