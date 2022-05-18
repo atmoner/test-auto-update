@@ -10,7 +10,7 @@ const config = {
 }
 
 app.get('/', (req, res) => {
-  res.send('Hello atmon3r! <a href="./update">update</a>')
+  res.send('Hello atmon3r updated! <a href="./update">update</a>')
 })
 
 app.get('/update', (req, res) => {
