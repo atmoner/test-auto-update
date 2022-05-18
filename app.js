@@ -8,7 +8,8 @@ console.log(homedir + '/Bureau/test-auto-update3/')
 const config = {
     repository: 'https://github.com/atmoner/test-auto-update',
     fromReleases: false,
-    tempLocation: homedir + '/Bureau/test-auto-update3/'
+    tempLocation: homedir + '/Bureau/test-auto-update3/',
+    branch: 'main'
 }
 const updater = new AutoGitUpdate(config);
 
