@@ -15,7 +15,7 @@ const updater = new AutoGitUpdate(config);
 app.get('/', async (req, res) => {
   var returnData = await updater.compareVersions()
   console.log(returnData)
-  res.send('Hello atmon3r updated-4! <a href="./update">update</a><br />Curent version: '+returnData.currentVersion+'<br />Remote version'+returnData.remoteVersion)
+  res.send('Hello atmon3r updated-4! <a href="./update">update</a><br />Curent version: '+returnData.currentVersion+'<br />Remote version: '+returnData.remoteVersion)
 })
 
 app.get('/update', (req, res) => {  
