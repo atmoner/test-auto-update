@@ -7,12 +7,12 @@ const port = 3000
 const config = {
     repository: 'https://github.com/atmoner/test-auto-update',
     fromReleases: false,
-    tempLocation: '~/Bureau/test-auto-update2/'
+    tempLocation: '~/Bureau/test-auto-update3/'
 }
 
 app.get('/', (req, res) => {
   var returnData = updater.compareVersions()
-  res.send('Hello atmon3r updated2! <a href="./update">update</a><br />'+returnData)
+  res.send('Hello atmon3r updated-3! <a href="./update">update</a><br />'+returnData)
 
 })
 
