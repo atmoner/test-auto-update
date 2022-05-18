@@ -1,6 +1,5 @@
 const express = require('express')
 const AutoGitUpdate = require('auto-git-update')
-//const updater = new AutoGitUpdate(config);
 const app = express()
 const port = 3000
 const homedir = require('os').homedir();
@@ -11,6 +10,7 @@ const config = {
     fromReleases: false,
     tempLocation: homedir + '/Bureau/test-auto-update3/'
 }
+const updater = new AutoGitUpdate(config);
 
 app.get('/', (req, res) => {
   var returnData = updater.compareVersions()
