@@ -19,8 +19,8 @@ app.get('/', async (req, res) => {
   res.send(jsonData) 
 })
 
-app.get('/view', (req, res) => {  
-  var returnData = updater.compareVersions()
+app.get('/view', async (req, res) => {  
+  var returnData = await updater.compareVersions()
   if (returnData.upToDate === 'true')
     res.send('You are update! '+returnData.currentVersion+'<br />Remote version: '+returnData.remoteVersion)
   else
