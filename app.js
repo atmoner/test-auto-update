@@ -1,9 +1,10 @@
 const express = require('express')
 const AutoGitUpdate = require('auto-git-update')
+const fs = require('fs')
 const app = express()
 const port = 3000
-const homedir = require('os').homedir();
-console.log(homedir + '/Bureau/test-auto-update3/')
+const homedir = require('os').homedir()
+let jsonData = require('./cosmos.config.json');
 
 const config = {
     repository: 'https://github.com/atmoner/test-auto-update',
@@ -14,9 +15,9 @@ const config = {
 const updater = new AutoGitUpdate(config);
 
 app.get('/', async (req, res) => {
-  var returnData = await updater.compareVersions()
-  console.log(returnData)
-  res.send('Hello atmon3r '+returnData.remoteVersion+'! <a href="./update">update</a><br />Curent version: '+returnData.currentVersion+'<br />Remote version: '+returnData.remoteVersion)
+  res.setHeader('Content-Type', 'application/json');
+  res.send(jsonData)
+  // res.send('Hello atmon3r '+returnData.remoteVersion+'! <a href="./update">update</a><br />Curent version: '+returnData.currentVersion+'<br />Remote version: '+returnData.remoteVersion)
 })
 
 app.get('/update', (req, res) => {  
